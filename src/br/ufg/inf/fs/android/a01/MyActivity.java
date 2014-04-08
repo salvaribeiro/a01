@@ -50,4 +50,26 @@ public class MyActivity extends Activity {
     public void onClickMenuSair(MenuItem item) {
         finish();
     }
+
+    /**
+     * Chamado quando uma opção do menu é selecionada.
+     * @param item
+     * @return <c>true</c> se o item foi tratado, ou <c>false</c>
+     * caso contrário.
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_configurar:
+                onClickMenuConfigurar(item);
+                return true;
+
+            case R.id.menu_sair:
+                onClickMenuSair(item);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
