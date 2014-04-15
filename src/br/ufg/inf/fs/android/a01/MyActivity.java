@@ -7,20 +7,32 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+/**
+ * Uma atividade herda de Activity.
+ */
 public class MyActivity extends Activity {
+
     /**
-     * Called when the activity is first created.
+     * Chamado quando a atividade é criada. Uma atividade
+     * contém uma ContentView, que é inflada conforme o
+     * resource, neste caso, o arquivo main.xml
+     * contido no diretório res\layout.
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Observe o R (resource) abaixo. Ele corresponde ao
+        // diretório "res". Neste diretório interessa o diretório
+        // layout e, neste diretório, o arquivo main.xml. Tudo isto
+        // é "deduzível" de R.lyout.main.
         setContentView(R.layout.main);
     }
 
     /**
      * Chamado para "inflar" o recurso "menu" contendo
      * os itens do menu de opções.
-     * @param menu
+     * @param menu Objeto a ser "inflado" com o resource fornecido.
      * @return
      */
     @Override
