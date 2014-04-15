@@ -44,10 +44,10 @@ public class MyActivity extends Activity {
     }
 
     /**
-     * Chamado quando se seleciona o item Configurar.
+     * Chamado quando se seleciona a opção Configurar.
      * Neste caso, apenas exibe uma mensagem por um
-     * perído de tempo.
-     * @param item
+     * período de tempo.
+     * @param item Opção de menu selecionada.
      */
     public void onClickMenuConfigurar(MenuItem item) {
         Toast toast = Toast.makeText(this, "Configurar...", Toast.LENGTH_LONG);
@@ -64,7 +64,11 @@ public class MyActivity extends Activity {
     }
 
     /**
-     * Chamado quando uma opção do menu é selecionada.
+     * Chamado quando uma opção de menu é selecionada.
+     * Observe, do código abaixo, as ações executadas:
+     * (i) obter o identificador da opção selecionada;
+     * (ii) conforme o identificador, chamar método que irá
+     * tratar a seleção do usuário.
      * @param item
      * @return <c>true</c> se o item foi tratado, ou <c>false</c>
      * caso contrário.
