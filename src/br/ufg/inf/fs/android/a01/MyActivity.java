@@ -11,7 +11,8 @@ import android.widget.Toast;
  * Uma atividade herda de Activity.
  */
 public class MyActivity extends Activity {
-
+    String selecionado = "Selecionado";
+    String nSelecionado = "Não selecionado";
     /**
      * Chamado quando a atividade é criada. Uma atividade
      * contém uma ContentView, que é inflada conforme o
@@ -39,7 +40,7 @@ public class MyActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
-
+        menu.add(selecionado);
         return true;
     }
 
@@ -49,7 +50,7 @@ public class MyActivity extends Activity {
      * período de tempo.
      * @param item Opção de menu selecionada.
      */
-    public void onClickMenuConfigurar(MenuItem item) {
+    public void onClickMenuConfigurar() {
         Toast toast = Toast.makeText(this, "Configurar...", Toast.LENGTH_LONG);
         toast.show();
     }
@@ -75,9 +76,17 @@ public class MyActivity extends Activity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getTitle().equals(selecionado)) {
+            item.setTitle(nSelecionado);
+            return true;
+        }
+        if (item.getTitle().equals(nSelecionado)) {
+            item.setTitle(selecionado);
+            return true;
+        }
         switch (item.getItemId()) {
             case R.id.menu_configurar:
-                onClickMenuConfigurar(item);
+                onClickMenuConfigurar();
                 return true;
 
             case R.id.menu_sair:
